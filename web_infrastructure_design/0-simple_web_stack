@@ -1,0 +1,22 @@
+Task 0: Simple Web Stack
+
+Infrastructure flow
+
+A user types www.foobar.com in their browser. A DNS (Domain Name System) query resolves the www A record to IP 8.8.8.8. The browser then sends an HTTP/HTTPS request to that IP (Internet Protocol). Nginx receives the request and either serves static files directly or forwards dynamic requests to the application server. The application server executes the business logic using the codebase (PHP, Python, etc.), queries MySQL for data, and Nginx sends the response back to the user.
+
+---
+
+Key concepts
+
+1. Server: a physical or virtual machine that listens for and responds to network requests.
+2. Domain name: maps a human-readable address to an IP address.
+3. www DNS record: an A record pointing www.foobar.com to 8.8.8.8.
+4. Communication protocol: the server communicates with the user via HTTP/HTTPS over TCP/IP.
+
+---
+
+Issues
+
+- SPOF (single point of failure): if the single server goes down, the entire site is unreachable.
+- Maintenance downtime: restarting Nginx to deploy new code takes the site offline.
+- No scalability: a single server cannot handle traffic spikes; there is no load balancer or horizontal scaling.
